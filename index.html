@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="speeches">
+	<head>
+		<title>FTFY Speeches</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/angular.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>FTFY Speeches</h1>
+			<h2>Remix history's great speeches</h2>
+		</header>
+
+		<div ng-controller="SpeechListController as speechList">
+			<div id="choices">
+				<ul>
+					<li ng-repeat="speech in speeches">
+						<div>
+							<p>{{speech.name}}</p>
+							<p>{{speech.author_first_name}} • {{speech.author_surname}}</p>
+						</div>
+					</li>
+				</ul>
+			</div> <!-- choices -->
+
+			<div id="madlibs">
+				<ul>
+					<!-- <li ng-repeat=""> -->
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div ng-controller="LibsController as libs">
+		</div>
+	</body>
+</html>
