@@ -15,8 +15,15 @@
 
 		<div ng-controller="SpeechListController as speechList">
 			<div id="choices">
+
+				<div class="radio">
+					<label>
+				    	<input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked>
+				    {{speechList.speech.name}}
+				  	</label>
+				</div>
 				<ul>
-					<li ng-repeat="speech in speeches">
+					<li ng-repeat="speech in speechList.speeches">
 						<div>
 							<p>{{speech.name}}</p>
 							<p>{{speech.author_first_name}} • {{speech.author_surname}}</p>
