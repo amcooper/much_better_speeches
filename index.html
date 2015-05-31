@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="speeches">
+<html ng-app="speechChoices">
 	<head>
 		<title>FTFY Speeches</title>
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/app.js"></script>
 	</head>
 	<body>
 		<header>
@@ -26,7 +28,7 @@
 					<li ng-repeat="speech in speechList.speeches">
 						<div>
 							<p>{{speech.name}}</p>
-							<p>{{speech.author_first_name}} • {{speech.author_surname}}</p>
+							<p>{{speech.author_first_name}}  {{speech.author_surname}}</p>
 						</div>
 					</li>
 				</ul>
