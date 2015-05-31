@@ -18,20 +18,15 @@
 		<div ng-controller="SpeechListController as speechList">
 			<div id="choices">
 
-				<div class="radio">
-					<label>
-				    	<input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked>
-				    {{speechList.speech.name}}
-				  	</label>
-				</div>
-				<ul>
-					<li ng-repeat="speech in speechList.speeches">
+				<div class="radio" ng-repeat="speech in speechList.speeches">
+					<label display="block">
+				    	<input type="radio" name="optionsRadios" id="optionsRadios" value="{{speech.name}}" />
 						<div>
 							<p>{{speech.name}}</p>
 							<p>{{speech.author_first_name}}  {{speech.author_surname}}</p>
-						</div>
-					</li>
-				</ul>
+						</div>				    
+				  	</label>
+				</div>
 			</div> <!-- choices -->
 
 			<div id="madlibs">
