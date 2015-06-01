@@ -33,22 +33,26 @@
 			<div id="madlibs" ng-show="speechList.panel=='fillingsPanel'">
 				<h3>{{speechList.selected.name}}</h3>
 				<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
-				<form ng-repeat="filling in speechList.selected.fillings">
-					<input type="text" name="filling" id="filling" placeholder="{{filling.pos}}" ng-model="filling.text" />
-					<button class="btn btn-default" type="submit">Submit</button>
-				</form>
-				<button class="btn btn-default" type="submit" ng-click="speechList.fillingsSubmit()">SUBMIT</button>				
-			</div>
+				<div ng-repeat="filling in speechList.selected.fillings track by $index">
+					<input type="text" name="filling" id="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" />
+					<button class="btn btn-default" type="submit" ng-show="(speechList.fillingsCounter==$index) && !($last)" ng-click="speechList.fillingsNext()">Next</button>
+					<button class="btn btn-default" type="submit" ng-show="(speechList.fillingsCounter==$index) && $last" ng-click="speechList.fillingsSubmit()">Finished</button>
+				</div>
+			</div> <!-- madlibs -->
 
 			<div id="resultText" ng-show="speechList.panel=='resultsPanel'">
-				<h4>SHOW RESULTS</h4>
+				<h3>{{speechList.selected.name}}</h3>
+				<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
+				<h4>This is much better:</h4>
+				<div>
+					<span ng-repeat="snippet in speechList.selected.text_snippets">
+						{{snippet}} {{speechList.selected.fillings[$index].text}}
+					</span>
+				<div>
 				<button class="btn btn-default" type="submit" ng-click="speechList.initialize()">Play again</button>
-			</div>
+			</div> <!-- resultText -->
 
-		</div>
-
-		<div ng-controller="LibsController as libs">
-		</div>
+		</div> <!-- SpeechListController -->
 
 	</body>
 </html>

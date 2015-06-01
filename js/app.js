@@ -10,7 +10,11 @@
 		};
 		this.fillingsSubmit = function() {
 			this.panel = "resultsPanel";
+			// Text processing goes here.
 			console.log("status: " + this.panel + "; first filling: " + this.selected.fillings[0].text);
+		};
+		this.fillingsNext = function() {
+			this.fillingsCounter ++;
 		};
 		this.initialize = function() {
 			console.log("Initializing...");
@@ -23,16 +27,11 @@
 			this.panel = "listPanel";
 			this.speechIndex = 0;
 			this.selected = speeches[this.speechIndex];
+			this.fillingsCounter = 0;
 			console.log("status: " + this.panel + "; index: " + this.speechIndex);
 		};
 		this.initialize();
 	});
-
-	app.controller('LibsController', function() {
-		this.madlibs = [];
-	});
-
-
 
 	var speeches = [{
 		name: 'Cordelia',
@@ -46,7 +45,7 @@
 			" that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an",
 			"named Jeb."
 		],
-		fillings: [{pos:"common noun",text:""}, {pos:"common noun",text:""}, {pos:"common noun",text:""}]
+		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}]
 	}, {
 		name: 'Queen Mab',
 		orator: 'Mercutio',
@@ -59,7 +58,7 @@
 			 "those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I", 
 			 "My vengeance upon thee."
 		],
-		fillings: [{pos:"adjective",text:""}, {pos:"common noun",text:""}, {pos:"transitive verb",text:""}]
+		fillings: [{pos:"adjective",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}]
 	}, {
 		name: 'Liberty or death',
 		orator: 'Patrick Henry',
@@ -72,7 +71,7 @@
 			" and become ",
 			". Some don't, become nothing. She starred in one of the ones that became nothing."
 		],
-		fillings: [{pos:"common noun",text:""}, {pos:"past participle",text:""}, {pos:"common noun",text:""}]
+		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"past participle",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}]
 	}, {
 		name: 'Caesar\'s funeral oration',
 		orator: 'Mark Antony',
@@ -85,7 +84,7 @@
 			" each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is ",
 			" but it doesn't hold a candle to man."
 		],
-		fillings: [{pos:"common noun",text:""}, {pos:"transitive verb",text:""}, {pos:"adjective",text:""}]
+		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}, {pos:"adjective",text:"",caps:"none"}]
 	}, {
 		name: 'Farewell',
 		orator: 'Dwight Eisenhower',
@@ -98,6 +97,6 @@
 			" you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get ",
 			". You understand?"
 		],
-		fillings: [{pos:"common noun",text:""}, {pos:"transitive verb",text:""}, {pos:"past participle",text:""}]
+		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}, {pos:"past participle",text:"",caps:"none"}]
 	}];
 })();
