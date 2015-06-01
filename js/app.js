@@ -2,16 +2,30 @@
 	var app = angular.module('speechChoices', [ ]);
 
 	app.controller('SpeechListController', function() {
-		this.speeches = speeches;
-		this.panel = "listPanel";
-		this.speechIndex = 0;
-		this.selected = speeches[speechIndex];
-		console.log("status: " + this.panel + "; index: " + this.speechIndex);
 		this.listSubmit = function() {
 			//Perhaps validate choice before submitting -- here? or have default choice.
 			this.panel = "fillingsPanel";
+			this.selected = speeches[this.speechIndex];
 			console.log("status: " + this.panel + "; index: " + this.speechIndex);
 		};
+		this.fillingsSubmit = function() {
+			this.panel = "resultsPanel";
+			console.log("status: " + this.panel + "; first filling: " + this.selected.fillings[0].text);
+		};
+		this.initialize = function() {
+			console.log("Initializing...");
+			speeches.forEach(function(el,i,ar) {
+				el.fillings.forEach(function(elf,indexf,arf) {
+					elf.text="";
+				});
+			});
+			this.speeches = speeches;
+			this.panel = "listPanel";
+			this.speechIndex = 0;
+			this.selected = speeches[this.speechIndex];
+			console.log("status: " + this.panel + "; index: " + this.speechIndex);
+		};
+		this.initialize();
 	});
 
 	app.controller('LibsController', function() {
@@ -45,7 +59,7 @@
 			 "those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I", 
 			 "My vengeance upon thee."
 		],
-		fillings: [{pos:"adjective", "common noun", "transitive verb"]
+		fillings: [{pos:"adjective",text:""}, {pos:"common noun",text:""}, {pos:"transitive verb",text:""}]
 	}, {
 		name: 'Liberty or death',
 		orator: 'Patrick Henry',
@@ -58,7 +72,7 @@
 			" and become ",
 			". Some don't, become nothing. She starred in one of the ones that became nothing."
 		],
-		fillings: ["common noun", "past participle", "common noun"]
+		fillings: [{pos:"common noun",text:""}, {pos:"past participle",text:""}, {pos:"common noun",text:""}]
 	}, {
 		name: 'Caesar\'s funeral oration',
 		orator: 'Mark Antony',
@@ -71,7 +85,7 @@
 			" each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is ",
 			" but it doesn't hold a candle to man."
 		],
-		fillings: ["common noun", "transitive verb", "adjective"]
+		fillings: [{pos:"common noun",text:""}, {pos:"transitive verb",text:""}, {pos:"adjective",text:""}]
 	}, {
 		name: 'Farewell',
 		orator: 'Dwight Eisenhower',
@@ -84,6 +98,6 @@
 			" you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get ",
 			". You understand?"
 		],
-		fillings: ["common noun", "transitive verb", "past participle"]
+		fillings: [{pos:"common noun",text:""}, {pos:"transitive verb",text:""}, {pos:"past participle",text:""}]
 	}];
 })();

@@ -34,9 +34,15 @@
 				<h3>{{speechList.selected.name}}</h3>
 				<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
 				<form ng-repeat="filling in speechList.selected.fillings">
-					<input type="text" name="filling" id="filling" ng-model="filling.text" />
+					<input type="text" name="filling" id="filling" placeholder="{{filling.pos}}" ng-model="filling.text" />
 					<button class="btn btn-default" type="submit">Submit</button>
-				</form>				
+				</form>
+				<button class="btn btn-default" type="submit" ng-click="speechList.fillingsSubmit()">SUBMIT</button>				
+			</div>
+
+			<div id="resultText" ng-show="speechList.panel=='resultsPanel'">
+				<h4>SHOW RESULTS</h4>
+				<button class="btn btn-default" type="submit" ng-click="speechList.initialize()">Play again</button>
 			</div>
 
 		</div>
