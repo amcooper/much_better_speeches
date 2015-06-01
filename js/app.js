@@ -3,11 +3,22 @@
 
 	app.controller('SpeechListController', function() {
 		this.speeches = speeches;
+		this.panel = "listPanel";
+		this.speechIndex = 0;
+		this.selected = speeches[speechIndex];
+		console.log("status: " + this.panel + "; index: " + this.speechIndex);
+		this.listSubmit = function() {
+			//Perhaps validate choice before submitting -- here? or have default choice.
+			this.panel = "fillingsPanel";
+			console.log("status: " + this.panel + "; index: " + this.speechIndex);
+		};
 	});
 
 	app.controller('LibsController', function() {
 		this.madlibs = [];
 	});
+
+
 
 	var speeches = [{
 		name: 'Cordelia',
@@ -21,7 +32,7 @@
 			" that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an",
 			"named Jeb."
 		],
-		blanks: ["common noun", "common noun", "common noun"]
+		fillings: [{pos:"common noun",text:""}, {pos:"common noun",text:""}, {pos:"common noun",text:""}]
 	}, {
 		name: 'Queen Mab',
 		orator: 'Mercutio',
@@ -34,7 +45,7 @@
 			 "those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I", 
 			 "My vengeance upon thee."
 		],
-		blanks: ["adjective", "common noun", "transitive verb"]
+		fillings: [{pos:"adjective", "common noun", "transitive verb"]
 	}, {
 		name: 'Liberty or death',
 		orator: 'Patrick Henry',
@@ -47,7 +58,7 @@
 			" and become ",
 			". Some don't, become nothing. She starred in one of the ones that became nothing."
 		],
-		blanks: ["common noun", "past participle", "common noun"]
+		fillings: ["common noun", "past participle", "common noun"]
 	}, {
 		name: 'Caesar\'s funeral oration',
 		orator: 'Mark Antony',
@@ -60,7 +71,7 @@
 			" each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is ",
 			" but it doesn't hold a candle to man."
 		],
-		blanks: ["common noun", "transitive verb", "adjective"]
+		fillings: ["common noun", "transitive verb", "adjective"]
 	}, {
 		name: 'Farewell',
 		orator: 'Dwight Eisenhower',
@@ -73,6 +84,6 @@
 			" you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get ",
 			". You understand?"
 		],
-		blanks: ["common noun", "transitive verb", "past participle"]
+		fillings: ["common noun", "transitive verb", "past participle"]
 	}];
 })();

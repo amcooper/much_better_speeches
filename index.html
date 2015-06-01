@@ -16,29 +16,33 @@
 		</header>
 
 		<div ng-controller="SpeechListController as speechList">
-			<div id="choices">
 
+			<div id="choices" ng-show="speechList.panel=='listPanel'">
 				<div class="radio" ng-repeat="speech in speechList.speeches">
 					<label display="block">
-				    	<input type="radio" name="optionsRadios" id="optionsRadios" value="{{speech.name}}" />
+				    	<input type="radio" name="optionsRadios" id="optionsRadios" ng-model="speechList.speechIndex" value="{{$index}}" />
 						<div>
 							<p>{{speech.name}}</p>
-							<p>{{speech.author_first_name}}  {{speech.author_surname}}</p>
+							<p>{{speech.author_first_name}} {{speech.author_surname}}</p>
 						</div>				    
 				  	</label>
 				</div>
+				<button class="btn btn-default" type="submit" ng-click="speechList.listSubmit()">Submit</button>
 			</div> <!-- choices -->
 
-			<div id="madlibs">
-				<ul>
-					<!-- <li ng-repeat=""> -->
-					</li>
-				</ul>
+			<div id="madlibs" ng-show="speechList.panel=='fillingsPanel'">
+				<h3>{{speechList.selected.name}}</h3>
+				<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
+				<form ng-repeat="filling in speechList.selected.fillings">
+					<input type="text" name="filling" id="filling" ng-model="filling.text" />
+					<button class="btn btn-default" type="submit">Submit</button>
+				</form>				
 			</div>
 
 		</div>
 
 		<div ng-controller="LibsController as libs">
 		</div>
+
 	</body>
 </html>
