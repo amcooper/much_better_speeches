@@ -1,3 +1,15 @@
+#choices h4 {
+	margin-top: 50px;
+}
+
+.list-group-item {
+	border: 0px;
+}
+
+a.list-group-item:hover, a.list-group-item:focus {
+	background-color: #ffffcc;
+}
+
 #eachFilling {
 	margin-top: 50px;
 }

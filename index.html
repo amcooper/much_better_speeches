@@ -15,32 +15,22 @@
 			<div class="col-md-4 col-md-offset-4" ng-controller="SpeechListController as speechList">
 				<header class="text-center" ng-click="speechList.initialize()">
 					<h1>FTFY Speeches</h1>
-					<h2>Remix history's great speeches</h2>
+					<h3>Remix history's great speeches</h2>
 				</header>
 
 				<div id="choices" ng-show="speechList.panel=='listPanel'">
-					<h4>Choose a speech:</h4>
+					<h4 class="text-center">Choose a speech:</h4>
 					<div class="list-group" ng-repeat="speech in speechList.speeches">
-						<a href="#" class="list-group-item" ng-model="speechList.speechIndex" value="{{$index}}" ng-mouseover="listStyle={background-color:'yellow'}" ng-style="listStyle" ng-click="speechList.listSubmit($index)">
+						<a href="#" class="list-group-item text-center" ng-click="speechList.listSubmit($index)">
 							<p>{{speech.name}}<br />
 							{{speech.author_first_name}} {{speech.author_surname}}</p>
 						</a>
 					</div>
-					<!-- <div class="radio" ng-repeat="speech in speechList.speeches">
-						<label display="block">
-					    	<input type="radio" name="optionsRadios" id="optionsRadios" ng-model="speechList.speechIndex" value="{{$index}}" />
-							<div>
-								<p>{{speech.name}}<br />
-								{{speech.author_first_name}} {{speech.author_surname}}</p>
-							</div>				    
-					  	</label>
-					</div> -->
-					<!-- <button class="btn btn-default" type="submit" ng-click="speechList.listSubmit()">Get fixin'</button> -->
 				</div> <!-- choices -->
 
 				<div id="fillings" ng-show="speechList.panel=='fillingsPanel'">
-					<h3>{{speechList.selected.name}}</h3>
-					<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
+					<h3 class="text-center">{{speechList.selected.name}}</h3>
+					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
 					<div id="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
 						<b><i><span id="counter" ng-show="speechList.fillingsCounter==$index">{{$index+1}} of {{speechList.selected.fillings.length}}</span></i></b>
 						<input type="text" name="filling" id="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" />
