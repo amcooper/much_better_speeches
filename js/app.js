@@ -2,8 +2,9 @@
 	var app = angular.module('speechChoices', [ ]);
 
 	app.controller('SpeechListController', function() {
-		this.listSubmit = function() {
+		this.listSubmit = function(clickedIndex) {
 			//Perhaps validate choice before submitting -- here? or have default choice.
+			this.speechIndex = clickedIndex;
 			this.panel = "fillingsPanel";
 			this.selected = speeches[this.speechIndex];
 			console.log("status: " + this.panel + "; index: " + this.speechIndex);
