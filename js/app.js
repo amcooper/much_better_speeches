@@ -1,9 +1,9 @@
 (function() {
-	var app = angular.module('speechChoices', [ ]);
+	var app = angular.module('speechChoices', ['ngSanitize']);
 
 	app.controller('SpeechListController', function() {
 		this.listSubmit = function(clickedIndex) {
-			//Perhaps validate choice before submitting -- here? or have default choice.
+			//Perhaps validate choice before submitting<br>here? or have default choice.
 			this.speechIndex = clickedIndex;
 			this.panel = "fillingsPanel";
 			this.selected = speeches[this.speechIndex];
@@ -11,8 +11,13 @@
 		};
 		this.fillingsSubmit = function() {
 			this.panel = "resultsPanel";
-			// Text processing goes here.
-			console.log("status: " + this.panel + "; first filling: " + this.selected.fillings[0].text);
+			var j = 0;
+			this.htmlResult = "";
+			while (j < this.selected.fillings.length) {
+				this.htmlResult = this.htmlResult + this.selected.text_snippets[j] + this.selected.fillings[j].text;
+				j++;
+			}
+			this.htmlResult = this.htmlResult + this.selected.text_snippets[this.selected.text_snippets.length-1];
 		};
 		this.fillingsNext = function() {
 			this.fillingsCounter ++;
@@ -35,15 +40,15 @@
 	});
 
 	var speeches = [{
-		name: 'Cordelia',
-		orator: 'Cordelia',
-		source: 'King Lear',
-		author_first_name: 'William',
-		author_surname: 'Shakespeare',
+		name: 'The Internet is a Series of Tubes',
+		orator: 'Ted Stevens',
+		source: 'U.S. Congressional Record',
+		author_first_name: 'Ted',
+		author_surname: 'Stevens',
 		text_snippets: [
-			"Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my", 
+			"Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my ", 
 			"with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical ",
-			" that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an",
+			" that shakes when you put quarters in it? No?<br>Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an ",
 			"named Jeb."
 		],
 		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}]
@@ -67,12 +72,54 @@
 		author_first_name: 'Patrick',
 		author_surname: 'Henry',
 		text_snippets: [
-			"Well, the way they make shows is, they make one show. That show's called a", 
-			". Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get ",
-			" and become ",
-			". Some don't, become nothing. She starred in one of the ones that became nothing."
+			"They tell us, sir, that we are weak; unable to cope with so formidable a ",
+			". But when shall we be stronger? Will it be the next week, or the next year? Will it be when we are totally ",
+			", and when a British ",
+			"shall be stationed in every house? Shall we gather strength by irresolution and inaction? Shall we acquire the means of effectual resistance by lying supinely on our backs and hugging the delusive ",
+			"of hope, until our enemies shall have bound us hand and foot?<br>Sir, we are not weak if we make a proper use of those means which the God of nature ",
+			"in our power. Three millions of people, armed in the ", "cause of liberty, and in such a ",
+			"as that which we possess, are invincible by any force which our enemy can ",
+			"against us.<br>Besides, sir, we shall not ",
+			"our battles alone. There is a just ",
+			"who presides over the destinies of nations, and who will raise up friends to fight our battles for us. The battle, sir, is not to the strong alone; it is to the ",
+			", the ",
+			", the ",
+			". <br>Besides, sir, we have no election. If we were base enough to desire it, it is now too late to retire from the contest. There is no retreat but in submission and slavery! Our chains are forged! Their clanking may be heard on the plains of Boston! The war is inevitable—and let it come! I repeat it, sir, let it come.<br>It is in vain, sir, to ",
+			"the matter. Gentlemen may cry, peace, peace—but there is no peace. The war is actually begun! The next gale that ",
+			"s from the north will bring to our ears the clash of resounding ",
+			"! Our brethren are already in the field! Why stand we here ",
+			"? What is it that gentlemen wish? What would they have? Is life so dear, or peace so sweet, as to be purchased at the price of ",
+			"and ",
+			"?<br>",
+			"it, Almighty God! I know not what course others may ",
+			"; but as for me, give me ",
+			"or give me ",
+			"!"
 		],
-		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"past participle",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}]
+		fillings: [{pos:"noun",text:"",caps:"none"}, 
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"verb (past tense)"},
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"},
+			{pos:"plural noun",text:"",caps:"none"},
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"plural noun",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"init"},
+			{pos:"verb",text:"",caps:"none"},
+			{pos:"plural noun",text:"",caps:"none"},
+			{pos:"plural noun",text:"",caps:"none"},
+		]
 	}, {
 		name: 'Caesar\'s funeral oration',
 		orator: 'Mark Antony',

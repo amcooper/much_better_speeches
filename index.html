@@ -6,6 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 		<link type="text/css" rel="stylesheet" href="css/stylesheet.css">
 		<script src="js/angular.min.js"></script>
+		<script src="js/angular-sanitize.min.js"></script>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/app.js"></script>
@@ -31,7 +32,8 @@
 				<div id="fillings" ng-show="speechList.panel=='fillingsPanel'">
 					<h3 class="text-center">{{speechList.selected.name}}</h3>
 					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
-					<div id="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
+					<div class="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
+						<!-- <p ng-show="speechList.fillingsCounter==$index">{{speechList.selected.text_snippets[$index]}}</p>  -->
 						<b><i><span id="counter" ng-show="speechList.fillingsCounter==$index">{{$index+1}} of {{speechList.selected.fillings.length}}</span></i></b>
 						<input type="text" name="filling" id="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" />
 						<button class="btn btn-default btn-sm" type="submit" ng-show="(speechList.fillingsCounter==$index) && !($last)" ng-click="speechList.fillingsNext()">Next</button>
@@ -40,13 +42,12 @@
 				</div> <!-- fillings -->
 
 				<div id="resultText" ng-show="speechList.panel=='resultsPanel'">
-					<h3>{{speechList.selected.name}}</h3>
-					<h4>{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
+					<h3 class="text-center">{{speechList.selected.name}}</h3>
+					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
 					<h4>This is much better:</h4>
 					<div>
-						<span ng-repeat="snippet in speechList.selected.text_snippets">
-							{{snippet}} {{speechList.selected.fillings[$index].text}}
-						</span>
+						<p ng-bind-html="speechList.htmlResult"></p>
+						<!-- <span ng-repeat="snippet in speechList.selected.text_snippets track by $index">{{snippet}} {{speechList.selected.fillings[$index].text}}</span> -->
 					</div>
 					<button class="btn btn-default" type="submit" ng-click="speechList.initialize()">Play again</button>
 				</div> <!-- resultText -->
