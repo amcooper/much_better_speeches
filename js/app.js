@@ -40,31 +40,35 @@
 	});
 
 	var speeches = [{
-		name: 'The Internet is a Series of Tubes',
-		orator: 'Ted Stevens',
-		source: 'U.S. Congressional Record',
-		author_first_name: 'Ted',
-		author_surname: 'Stevens',
-		text_snippets: [
-			"Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my ", 
-			"with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical ",
-			" that shakes when you put quarters in it? No?<br>Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an ",
-			"named Jeb."
-		],
-		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}]
-	}, {
 		name: 'Queen Mab',
 		orator: 'Mercutio',
 		source: 'Romeo and Juliet',
 		author_first_name: 'William',
 		author_surname: 'Shakespeare',
 		text_snippets: [
-			"The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men.",
-			 "is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious", 
-			 "those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I", 
-			 "My vengeance upon thee."
+			"O, then, I see Queen Mab hath ",
+			" with you.<br>She is the fairies' midwife, and she comes<br>In shape no bigger than a ",
+			"<br>On the fore-finger of an alderman,<br>Drawn with a team of ",
+			" atomies<br>Athwart men's noses as they ",
+			" asleep;<br>Her wagon-spokes made of long spiders' legs,<br>The cover of the wings of grasshoppers,<br>The traces of the smallest spider's web,<br>The collars of the moonshine's watery beams,<br>Her whip of cricket's bone, the lash of film,<br>Her wagoner a small grey-coated gnat,<br>Not so big as a round little worm<br>Prick'd from the lazy finger of a maid;<br>Her chariot is an empty hazel-nut<br>Made by the joiner squirrel or old grub,<br>Time out o' mind the fairies' coachmakers.<br>And in this state she gallops night by night<br>Through lovers' ",
+			", and then they dream of love;<br>O'er courtiers' ",
+			", that dream on court'sies straight,<br>O'er lawyers' ",
+			", who straight dream on fees,<br>O'er ladies' ",
+			", who straight on kisses dream,<br>Which oft the angry Mab with blisters plagues,<br>Because their breaths with sweetmeats tainted are:<br>Sometime she gallops o'er a courtier's nose,<br>And then dreams he of smelling out a suit;<br>And sometime comes she with a tithe-pig's tail<br>Tickling a parson's nose as a' ",
+			"s asleep,<br>Then dreams, he of another benefice:<br>Sometime she driveth o'er a soldier's neck,<br>And then dreams he of cutting foreign throats,<br>Of breaches, ambuscadoes, Spanish blades,<br>Of healths five-fathom deep; and then anon<br>Drums in his ear, at which he starts and wakes,<br>And being thus frighted swears a prayer or two<br>And sleeps again. This is that very Mab<br>That plats the manes of horses in the night,<br>And bakes the elflocks in foul sluttish hairs,<br>Which once untangled, much misfortune bodes:<br>This is the hag, when maids ",
+			" on their backs,<br>That presses them and learns them first to bear,<br>Making them women of good carriage:<br>This is she--"
 		],
-		fillings: [{pos:"adjective",text:"",caps:"none"}, {pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}]
+		fillings: [{pos:"verb (past tense)",text:"",caps:"none"}, 
+			{pos:"noun",text:"",caps:"none"}, 
+			{pos:"adjective",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"verb",text:"",caps:"none"}
+		]
 	}, {
 		name: 'Liberty or death',
 		orator: 'Patrick Henry',
@@ -120,31 +124,5 @@
 			{pos:"plural noun",text:"",caps:"none"},
 			{pos:"plural noun",text:"",caps:"none"},
 		]
-	}, {
-		name: 'Caesar\'s funeral oration',
-		orator: 'Mark Antony',
-		source: 'Julius Caesar',
-		author_first_name: 'William',
-		author_surname: 'Shakespeare',
-		text_snippets: [
-			"You think water moves fast? You should see ice. It moves like it has a", 
-			". Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we",
-			" each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is ",
-			" but it doesn't hold a candle to man."
-		],
-		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}, {pos:"adjective",text:"",caps:"none"}]
-	}, {
-		name: 'Farewell',
-		orator: 'Dwight Eisenhower',
-		source: 'Farewell',
-		author_first_name: 'Dwight',
-		author_surname: 'Eisenhower',
-		text_snippets: [
-			"My ",
-			"'s in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna",
-			" you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get ",
-			". You understand?"
-		],
-		fillings: [{pos:"common noun",text:"",caps:"none"}, {pos:"transitive verb",text:"",caps:"none"}, {pos:"past participle",text:"",caps:"none"}]
 	}];
 })();

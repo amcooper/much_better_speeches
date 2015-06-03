@@ -1,3 +1,16 @@
+* {
+	font-family: Average, serif;
+}
+
+body {
+	background-image: url("../assets/graffiti02.jpg");
+}
+
+header {
+	font-family: 'Oleo Script', 'sans serif';
+	color: #333399;
+}
+
 #choices h4 {
 	margin-top: 50px;
 }
@@ -14,7 +27,15 @@ a.list-group-item:hover, a.list-group-item:focus {
 	margin-top: 50px;
 }
 
-#counter {
+.counter {
 	color: gray;
 	font-size: small;
+}
+
+.filling {
+	margin-left: 10px;
+}
+
+#better {
+	font-family: Condiment, 'sans serif';
 }
