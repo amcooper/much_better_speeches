@@ -12,6 +12,7 @@
 		<script src="js/angular-sanitize.min.js"></script>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/index.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body>
@@ -37,7 +38,7 @@
 					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
 					<div class="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
 						<b><i><span class="counter" ng-show="speechList.fillingsCounter==$index">{{$index+1}} of {{speechList.selected.fillings.length}}</span></i></b>
-						<input type="text" name="filling" class="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" />
+						<input type="text" name="filling" id="filling"+{{$index+1}}.toString() class="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" ng-keyup="$event.keyCode==13 && speechList.fillingsNext()"/>
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && !($last)" ng-click="speechList.fillingsNext()">Next</button>
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && $last" ng-click="speechList.fillingsSubmit()">Finished</button>
 					</div>
@@ -55,5 +56,10 @@
 
 			</div> <!-- SpeechListController -->
 		</div> <!-- container-fluid -->
+		<script>
+			$(document).ready(function(){
+				$( "#filling"+({{$index+1}}).toString() ).focus();
+			});
+		</script>
 	</body>
 </html>
