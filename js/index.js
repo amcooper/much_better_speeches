@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	// $(".filling").focus();
+	$( 'button .autofocus' ).focus();
 });

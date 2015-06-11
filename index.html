@@ -5,15 +5,16 @@
 		<meta charset="utf-8" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 		<link type="text/css" rel="stylesheet" href="css/stylesheet.css">
-		<link href="//fonts.googleapis.com/css?family=Average&subset=latin" rel="stylesheet" type="text/css">
-		<link href="//fonts.googleapis.com/css?family=Oleo Script&subset=latin" rel="stylesheet" type="text/css">
-		<link href="//fonts.googleapis.com/css?family=Condiment&subset=latin" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Average&subset=latin" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Oleo Script&subset=latin" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Condiment&subset=latin" rel="stylesheet" type="text/css">
 		<script src="js/angular.min.js"></script>
 		<script src="js/angular-sanitize.min.js"></script>
+		<script src="node_modules/ng-focus-if/focusIf.min.js"></script>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/index.js"></script>
-		<script src="js/app.js"></script>
+		<script src="js/app.js"></script>		
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -38,7 +39,7 @@
 					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
 					<div class="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
 						<b><i><span class="counter" ng-show="speechList.fillingsCounter==$index">{{$index+1}} of {{speechList.selected.fillings.length}}</span></i></b>
-						<input type="text" name="filling" id="filling"+{{$index+1}}.toString() class="filling" placeholder="{{filling.pos}}" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" ng-keyup="$event.keyCode==13 && speechList.fillingsNext()"/>
+						<input type="text" name="filling" id="filling"+{{$index+1}}.toString() class="filling" placeholder="{{filling.pos}}" focus-if="speechList.fillingsCounter==$index" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" ng-keyup="($event.keyCode==13 && !($last) && speechList.fillingsNext()) || ($event.keyCode==13 && $last && speechList.fillingsSubmit())" />
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && !($last)" ng-click="speechList.fillingsNext()">Next</button>
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && $last" ng-click="speechList.fillingsSubmit()">Finished</button>
 					</div>
@@ -51,15 +52,15 @@
 						<p ng-bind-html="speechList.htmlResult"></p>
 					</div>
 					<h4 id="better">That's Much Better!</h4>
-					<button class="btn btn-default" type="submit" ng-click="speechList.initialize()">Play again</button>
+					<button class="btn btn-default autofocus" type="submit" ng-click="speechList.initialize()">Play again</button>
 				</div> <!-- resultText -->
 
 			</div> <!-- SpeechListController -->
 		</div> <!-- container-fluid -->
-		<script>
+<!-- 		<script>
 			$(document).ready(function(){
 				$( "#filling"+({{$index+1}}).toString() ).focus();
 			});
-		</script>
+		</script> -->
 	</body>
 </html>

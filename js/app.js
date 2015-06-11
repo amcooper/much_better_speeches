@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('speechChoices', ['ngSanitize']);
+	var app = angular.module('speechChoices', ['focus-if','ngSanitize']);
 
 	app.controller('SpeechListController', function() {
 		this.listSubmit = function(clickedIndex) {
@@ -40,6 +40,43 @@
 	});
 
 	var speeches = [{
+		name: 'Preamble to the U.S. Constitution',
+		orator: '',
+		source: 'Constitution of the United States',
+		author_first_name: '',
+		author_surname: '',
+		text_snippets: ["We the ", 
+			", in order to form a more ",
+			" ", 
+			", establish ", 
+			", ",
+			" domestic ",
+			", ",
+			" for the ",
+			" defense, promote the ",
+			" welfare, and secure the ",
+			" of ",
+			" to ourselves and our ",
+			", do ",
+			" and ",
+			" this Constitution for the United States of ",
+			"."],
+		fillings: [{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"adjective",text:"",caps:"none"}, 
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"}, 
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"noun",text:"",caps:"none"}, 
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"adjective",text:"",caps:"none"}, 
+			{pos:"adjective",text:"",caps:"none"}, 
+			{pos:"plural noun",text:"",caps:"none"}, 
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"noun",text:"",caps:"none"},
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"verb",text:"",caps:"none"}, 
+			{pos:"noun",text:"",caps:"none"}]
+	},	{
 		name: 'Queen Mab',
 		orator: 'Mercutio',
 		source: 'Romeo and Juliet',
