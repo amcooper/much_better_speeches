@@ -24,6 +24,7 @@
 					<h3>Remix history's great speeches</h2>
 				</header>
 
+				<!-- Starting panel: List of speeches. List disappears when player chooses a speech. -->
 				<div id="choices" ng-show="speechList.panel=='listPanel'">
 					<h4 class="text-center">Choose a speech:</h4>
 					<div class="list-group" ng-repeat="speech in speechList.speeches">
@@ -34,17 +35,25 @@
 					</div>
 				</div> <!-- choices -->
 
+				<!-- Fillings panel appears once player has chosen a speech. Includes speech name and author information, followed by the list of boxes for player input -->
 				<div id="fillings" ng-show="speechList.panel=='fillingsPanel'">
+
+					<!-- Speech name and author -->
 					<h3 class="text-center">{{speechList.selected.name}}</h3>
 					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
+
+					<!-- The input boxes for the player's chosen words appear one by one. -->
 					<div class="eachFilling" ng-repeat="filling in speechList.selected.fillings track by $index">
 						<b><i><span class="counter" ng-show="speechList.fillingsCounter==$index">{{$index+1}} of {{speechList.selected.fillings.length}}</span></i></b>
 						<input type="text" name="filling" id="filling"+{{$index+1}}.toString() class="filling" placeholder="{{filling.pos}}" focus-if="speechList.fillingsCounter==$index" ng-show="speechList.fillingsCounter==$index" ng-model="filling.text" ng-keyup="($event.keyCode==13 && !($last) && speechList.fillingsNext()) || ($event.keyCode==13 && $last && speechList.fillingsSubmit())" />
+
+						<!-- The "Next" button appears beside each input box until the last one, where the "Finished" button shows up. -->
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && !($last)" ng-click="speechList.fillingsNext()">Next</button>
 						<button class="btn btn-default btn-sm pull-right" type="submit" ng-show="(speechList.fillingsCounter==$index) && $last" ng-click="speechList.fillingsSubmit()">Finished</button>
 					</div>
 				</div> <!-- fillings -->
 
+				<!-- Results panel: Resulting final speech with player-entered words -->
 				<div id="resultText" ng-show="speechList.panel=='resultsPanel'">
 					<h3 class="text-center">{{speechList.selected.name}}</h3>
 					<h4 class="text-center">{{speechList.selected.author_first_name}} {{speechList.selected.author_surname}}</h4>
@@ -57,10 +66,6 @@
 
 			</div> <!-- SpeechListController -->
 		</div> <!-- container-fluid -->
-<!-- 		<script>
-			$(document).ready(function(){
-				$( "#filling"+({{$index+1}}).toString() ).focus();
-			});
-		</script> -->
+
 	</body>
 </html>

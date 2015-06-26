@@ -1,14 +1,21 @@
 (function() {
 	var app = angular.module('speechChoices', ['focus-if','ngSanitize']);
+	// Dependencies: 
+	// focus-if: Node module adds functionality to focus DOM elements conditionally
+	// ngSanitize: Sanitize HTML
 
+	// The sole controller
 	app.controller('SpeechListController', function() {
+
+		// This function executes when the player clicks on their chosen speech.
 		this.listSubmit = function(clickedIndex) {
-			//Perhaps validate choice before submitting<br>here? or have default choice.
 			this.speechIndex = clickedIndex;
 			this.panel = "fillingsPanel";
 			this.selected = speeches[this.speechIndex];
 			console.log("status: " + this.panel + "; index: " + this.speechIndex);
 		};
+
+		// This function executes when the player has finished submitting words and is ready to see the overhauled speech.
 		this.fillingsSubmit = function() {
 			this.panel = "resultsPanel";
 			var j = 0;
@@ -19,9 +26,13 @@
 			}
 			this.htmlResult = this.htmlResult + this.selected.text_snippets[this.selected.text_snippets.length-1];
 		};
+
+		// Just advance the blank words counter.
 		this.fillingsNext = function() {
 			this.fillingsCounter ++;
 		};
+
+		// Reinitialize everything and start over.
 		this.initialize = function() {
 			console.log("Initializing...");
 			speeches.forEach(function(el,i,ar) {
@@ -36,9 +47,13 @@
 			this.fillingsCounter = 0;
 			console.log("status: " + this.panel + "; index: " + this.speechIndex);
 		};
+
 		this.initialize();
 	});
 
+	// The data for the array of speeches. 
+	// -- The text snippets are the sections of the speech that won't be changed.
+	// -- The fillings represent the blanks to be filled in. Each one has a part of speech ('pos'), text, and capitalization ('none', 'initial', 'all').
 	var speeches = [{
 		name: 'Preamble to the U.S. Constitution',
 		orator: '',
