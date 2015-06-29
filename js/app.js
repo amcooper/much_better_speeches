@@ -32,6 +32,10 @@
 			this.fillingsCounter ++;
 		};
 
+		this.fillingsPrevious = function() {
+			this.fillingsCounter --;
+		};
+
 		// Reinitialize everything and start over.
 		this.initialize = function() {
 			console.log("Initializing...");
