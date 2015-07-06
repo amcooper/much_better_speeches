@@ -21,7 +21,7 @@
 			var j = 0;
 			this.htmlResult = "";
 			while (j < this.selected.fillings.length) {
-				this.htmlResult = this.htmlResult + this.selected.text_snippets[j] + this.selected.fillings[j].text;
+				this.htmlResult = this.htmlResult + this.selected.text_snippets[j] + "<span class='resultfilling'>" + this.selected.fillings[j].text + "</span>";
 				j++;
 			}
 			this.htmlResult = this.htmlResult + this.selected.text_snippets[this.selected.text_snippets.length-1];

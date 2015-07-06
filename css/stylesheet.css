@@ -1,5 +1,5 @@
 * {
-	font-family: Average, serif;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 @font-face {
@@ -42,47 +42,82 @@
 }
 
 body {
-	background-image: url("../assets/graffiti02.jpg");
+    background: 
+        linear-gradient(rgba(0,0,153,0.80), rgba(0,0,153,0.80)),
+    	url("../assets/graffiti_col_scaled.jpg");
 }
 
 header {
-	font-family: 'Oleo Script', 'sans serif';
-	color: #333399;
+	font-family: 'Amatic SC', 'Helvetica Neue', Helvetica, sans-serif;
+	color: white;
 	cursor: pointer;
+    font-size: 300%;
+}
+
+a.title_and_sub:hover, a.title_and_sub:focus {
+    text-decoration: underline;
+    text-decoration-color: white;
+    -moz-text-decoration-color: white;
 }
 
 #about_launcher {
 	font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+
+.exp_col_icon {
+    color: white;
+    margin-left:20px;
+}
+
+#expand_icon {
+    /*display: inline-block;*/
+}
+
+#collapse_icon {
+    display: none;
 }
 
 #about_text {
 	display: none;
+    color: white;
 }
 
 #choose {
 	font-weight: 900;
+    color: white;
 }
 
 #choices h4 {
 	margin-top: 20px;
+    color: white;
+}
+
+#chosen_speech_title {
+    color: white;
 }
 
 .list-group-item {
 	background-color: rgba(255,255,255,0);
 	border: 0px;
+    color: white;
 }
 
 a.list-group-item:hover, a.list-group-item:focus {
-	background-color: #ffffcc;
+	background-color: #000066;
+    color: blue;
 }
 
 #sname {
+    color: white;
 	/*font-family: 'jamaistevieregular';*/
 	/* font-family: 'thurston_ercregular'; */
 	/* font-family: 'peixe_fritoregular'; */
 }
 
 #sauth {
+    color: white;
 	/*font-family: 'jamaistevieregular';*/
 	/* font-family: 'thurston_ercregular'; */
 	/* font-family: 'peixe_fritoregular'; */
@@ -93,14 +128,25 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 
 .counter {
-	color: gray;
+	color: #cccccc;
 	font-size: small;
 }
 
 .filling {
 	margin-left: 10px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#resultText {
+    color: white;
+}
+
+.resultfilling {
+    font-style: italic;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
 }
 
 #better {
-	font-family: Condiment, 'sans serif';
+	font-family: Condiment, cursive;
 }
