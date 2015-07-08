@@ -3,10 +3,9 @@
 }
 
 body {
-    /*background: 
+    background: 
         linear-gradient(rgba(0,0,153,0.80), rgba(0,0,153,0.80)),
-    	url("../assets/graffiti_col_scaled.jpg");*/
-        background-color: gray;
+    	url("../assets/graffiti_col_scaled.jpg");
 }
 
 header {
