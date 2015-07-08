@@ -21,7 +21,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="col-md-4 col-md-offset-4" ng-controller="SpeechListController as speechList">
-				<a href="#" class="title_and_sub">
+				<a href="#" class="tsub">
 					<header class="text-center" ng-click="speechList.initialize()">
 						<h1>Much Better Speeches</h1>
 						<h3>Remix history's great speeches</h3>
@@ -32,6 +32,7 @@
 				<div id="choices" ng-show="speechList.panel=='listPanel'">
 					<h4 class="text-center about_launcher">What Is This?<span class="glyphicon glyphicon-triangle-top exp_col_icon" aria-hidden="true" id="expand_icon"></span><span class="glyphicon glyphicon-triangle-bottom exp_col_icon" aria-hidden="true" id="collapse_icon"></span></h4>
   					<p id="about_text">Once you choose a speech, you'll be presented with a series of blanks. Fill them in with whatever words you like. When you're done, we'll replace words in the text with your words.</p>
+  					<hr id="first_rule">
 					<h4 id="choose" class="text-center">Choose a speech:</h4>
 					<div class="list-group" ng-repeat="speech in speechList.speeches">
 						<a href="#" class="list-group-item text-center" ng-click="speechList.listSubmit($index)">
