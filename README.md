@@ -8,5 +8,4 @@ Built with Node.js, AngularJS, and Bootstrap.
 Current speeches:
 * Preamble to the U.S. Constitution
 * "The Internet Is A Series of Tubes" by Sen. Ted Stevens
-* "Queen Mab" from "Romeo and Juliet" by Shakespeare
-* "Give Me Liberty or Give Me Death" by Patrick Henry
+* "Farewell Address (Military-Industrial Complex)" by President Dwight Eisenhower
